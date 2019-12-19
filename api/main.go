@@ -16,10 +16,11 @@ func main() {
         if port == "" {
                 port = "8080"
         }
-  http.ListenAndServe(fmt.Sprintf(":%s", port), nil)
+  log.Fatal(http.ListenAndServe(fmt.Sprintf(":%s", port), nil))
 }
 
 func saludos(w http.ResponseWriter, r *http.Request) {
+  log.Print("Sending saludos.")
 
   file, _ := ioutil.ReadFile(os.Args[1])
 
