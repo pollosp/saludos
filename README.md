@@ -17,3 +17,12 @@ Fitipaldi, Generalisimo, artista, asteroide, berraco, bro, búfalo, campeón, ca
 - Usa `ruby add.rb SALUDO` para añadir un nuevo saludo
 - Usa `ruby generate_readme.rb` para actualizar el readme principal
 - Pull Request
+
+### PET NAMES
+```bash
+$ ruby pet-name.rb
+# leyenda-rompeolas
+
+$ ruby pet-name.rb 4
+# artista-truhan-mozo-chulapo
+```
