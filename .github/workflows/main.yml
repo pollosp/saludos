@@ -5,33 +5,36 @@ on:
       - 'master'
 
 jobs:
-  deploy:
-    name: Deploy job
+  setup-build-publish-deploy:
+    name: Setup, Build, Publish, and Deploy
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout the repository
-        uses: actions/checkout@v1
+    - name: Checkout
+      uses: actions/checkout@master
 
-      - name: Build Docker image
-        run: |
-          docker build . --tag eu.gcr.io/${{ secrets.GCLOUD_PROJECT }}/${{ secrets.GCLOUD_APP_NAME }}
-      - name: Authenticate into Google Cloud Platform
-        uses: actions/gcloud/auth@master
-        env:
-          GCLOUD_AUTH: ${{ secrets.GCLOUD_AUTH }}
+    # Setup gcloud CLI
+    - uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
+      with:
+        version: '270.0.0'
+        service_account_email: ${{ secrets.GKE_EMAIL }}
+        service_account_key: ${{ secrets.GKE_KEY }}
 
-      - name: Configure Docker to use Google Cloud Platform
-        uses: actions/gcloud/cli@master
-        with:
-          args: "auth configure-docker --quiet"
-
-      - name: Push image to Google Cloud Container Registry
-        uses: actions/gcloud/cli@master
-        with:
-          entrypoint: sh
-          args: -c "docker push eu.gcr.io/${{ secrets.GCLOUD_PROJECT }}/${{ secrets.GCLOUD_APP_NAME }}"
-
-      - name: Install beta commands and deploy on cloud run
-        uses: actions/gcloud/cli@master
-        with:
-          args: "components install beta --quiet && gcloud beta run deploy ${{ secrets.GCLOUD_APP_NAME }} --quiet --image eu.gcr.io/${{ secrets.GCLOUD_PROJECT }}/${{ secrets.GCLOUD_APP_NAME }} --project ${{ secrets.GCLOUD_PROJECT }} --region europe-west1 --platform managed"
+    # Configure docker to use the gcloud command-line tool as a credential helper
+    - run: |
+        # Set up docker to authenticate
+        # via gcloud command-line tool.
+        gcloud auth configure-docker
+      
+    # Build the Docker image
+    - name: Build
+      run: |        
+        docker build . --tag eu.gcr.io/${{ secrets.GCLOUD_PROJECT }}/${{ secrets.GCLOUD_APP_NAME }}
+    # Push the Docker image to Google Container Registry
+    - name: Publish
+      run: |
+        docker push eu.gcr.io/${{ secrets.GCLOUD_PROJECT }}/${{ secrets.GCLOUD_APP_NAME }}
+        
+    # Deploy the Docker image to the GKE cluster
+    - name: Deploy
+      run: |
+        components install beta --quiet && gcloud beta run deploy ${{ secrets.GCLOUD_APP_NAME }} --quiet --image eu.gcr.io/${{ secrets.GCLOUD_PROJECT }}/${{ secrets.GCLOUD_APP_NAME }} --project ${{ secrets.GCLOUD_PROJECT }} --region europe-west1 --platform managed
