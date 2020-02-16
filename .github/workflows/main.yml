@@ -28,6 +28,10 @@ jobs:
     - name: Build
       run: |        
         docker build . --tag eu.gcr.io/${{ secrets.GCLOUD_PROJECT }}/${{ secrets.GCLOUD_APP_NAME }}
+     # Build the Docker image
+    - name: Tests
+      run: |        
+        echo "TESTS!!!"
     # Push the Docker image to Google Container Registry
     - name: Publish
       run: |
