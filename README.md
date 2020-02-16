@@ -1,4 +1,5 @@
 # Saludos
+![Deploy the application to Google Cloud Run](https://github.com/pollosp/saludos/workflows/Deploy%20the%20application%20to%20Google%20Cloud%20Run/badge.svg)
 
 ## Lista de saludos para amigos y conocidos
 
