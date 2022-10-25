@@ -11,8 +11,8 @@ unless new_greeting
   exit
 end
 
-new_greetings = greetings.push(ARGV[0])
+greetings |= [new_greeting]
 
-File.write('saludos.json', JSON.pretty_generate(new_greetings))
+File.write('saludos.json', JSON.pretty_generate(greetings))
 
 system('ruby generate_readme.rb')
