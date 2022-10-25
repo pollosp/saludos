@@ -3,13 +3,13 @@
 ## Lista de saludos para amigos y conocidos
 
 ```text
-Fitipaldi, Generalisimo, artista, asteroide, berraco, bro, búfalo, campeón, capitán, centella, chulapo, ciclón, coloso, compadre, compatriota, crack, depredador, embajador, estrella, fenómeno, fiera, figura, figurín, furia, gigante, inmortal, jefe, leyenda, león, locuelo, machín, maestro, maquina, mascachapas, mastodonte, megalodón, mesías, mito, mozo, máquina, numero1, partenueces, piramide, poeta, primo, relámpago, Patatal, rey, rompeolas, socio, tarzán, templao, termotanque, tete, tiburón, tifón, tigre, titan, torero, tornado, toro, truhán, brontosaurio, mamadísimo, camarada, carapapa, gallo, nano, tronco, pirata, bandido, bandolero, genio, valle, parce
+Fitipaldi, Generalisimo, artista, asteroide, berraco, bro, búfalo, campeón, capitán, centella, chulapo, ciclón, coloso, compadre, compatriota, crack, depredador, embajador, estrella, fenómeno, fiera, figura, figurín, furia, gigante, inmortal, jefe, leyenda, león, locuelo, machín, maestro, maquina, mascachapas, mastodonte, megalodón, mesías, mito, mozo, máquina, numero1, partenueces, piramide, poeta, primo, relámpago, Patatal, rey, rompeolas, socio, tarzán, templao, termotanque, tete, tiburón, tifón, tigre, titan, torero, tornado, toro, truhán, brontosaurio, mamadísimo, camarada, carapapa, gallo, nano, tronco, pirata, bandido, bandolero, genio, valle, parce, panas
 ```
 
 ### RUBY
 
 ```ruby
-["Fitipaldi", "Generalisimo", "artista", "asteroide", "berraco", "bro", "búfalo", "campeón", "capitán", "centella", "chulapo", "ciclón", "coloso", "compadre", "compatriota", "crack", "depredador", "embajador", "estrella", "fenómeno", "fiera", "figura", "figurín", "furia", "gigante", "inmortal", "jefe", "leyenda", "león", "locuelo", "machín", "maestro", "maquina", "mascachapas", "mastodonte", "megalodón", "mesías", "mito", "mozo", "máquina", "numero1", "partenueces", "piramide", "poeta", "primo", "relámpago", "Patatal", "rey", "rompeolas", "socio", "tarzán", "templao", "termotanque", "tete", "tiburón", "tifón", "tigre", "titan", "torero", "tornado", "toro", "truhán", "brontosaurio", "mamadísimo", "camarada", "carapapa", "gallo", "nano", "tronco", "pirata", "bandido", "bandolero", "genio", "valle", "parce"]
+["Fitipaldi", "Generalisimo", "artista", "asteroide", "berraco", "bro", "búfalo", "campeón", "capitán", "centella", "chulapo", "ciclón", "coloso", "compadre", "compatriota", "crack", "depredador", "embajador", "estrella", "fenómeno", "fiera", "figura", "figurín", "furia", "gigante", "inmortal", "jefe", "leyenda", "león", "locuelo", "machín", "maestro", "maquina", "mascachapas", "mastodonte", "megalodón", "mesías", "mito", "mozo", "máquina", "numero1", "partenueces", "piramide", "poeta", "primo", "relámpago", "Patatal", "rey", "rompeolas", "socio", "tarzán", "templao", "termotanque", "tete", "tiburón", "tifón", "tigre", "titan", "torero", "tornado", "toro", "truhán", "brontosaurio", "mamadísimo", "camarada", "carapapa", "gallo", "nano", "tronco", "pirata", "bandido", "bandolero", "genio", "valle", "parce", "panas"]
 ```
 
 ## Contribuir
@@ -21,7 +21,7 @@ Fitipaldi, Generalisimo, artista, asteroide, berraco, bro, búfalo, campeón, ca
 ## Run from Docker
 
 ```
-docker run -ti --rm -v $PWD:/app --workdir /app ruby:2.6.5-alpine3.10 ruby add.rb SALUDO
+docker run -ti --rm -v $PWD:/app --workdir /app ruby:2.7-slim-bullseye ruby add.rb SALUDO
 ```
 
 ## PET NAMES
