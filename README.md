@@ -21,7 +21,7 @@ Fitipaldi, Generalisimo, artista, asteroide, berraco, bro, búfalo, campeón, ca
 ## Run from Docker
 
 ```
-docker run -ti --rm -v $PWD:/app --workdir /app ruby:2.6.5-alpine3.10 ruby add.rb SALUDO
+docker run -ti --rm -v $PWD:/app --workdir /app ruby:2.7-slim-bullseye ruby add.rb SALUDO
 ```
 
 ## PET NAMES
