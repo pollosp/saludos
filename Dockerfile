@@ -1,7 +1,8 @@
-FROM golang:1.13.5-buster AS builder
+FROM golang:1.19-buster AS builder
 WORKDIR /go/src/github.com/pollosp/api/
 RUN useradd -u 10001 scratchuser
 COPY api/main.go .
+RUN go mod init
 RUN CGO_ENABLED=0 go build
 
 FROM scratch
